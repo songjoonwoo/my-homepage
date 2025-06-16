@@ -1,0 +1,85 @@
+/* 기본 스타일 */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fdf6f9; /* 연한 핑크 배경 */
+    color: #333;
+    text-align: center;
+}
+
+header {
+    background-color: #e91e63; /* 핫핑크 헤더 */
+    color: white;
+    padding: 20px 0;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: #e91e63;
+}
+
+/* 포트폴리오 갤러리 스타일 */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.gallery .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.gallery .photo img:hover {
+    transform: scale(1.05);
+}
+
+/* 예약 버튼 스타일 */
+.booking-button {
+    display: inline-block;
+    background-color: #28a745; /* 초록색 버튼 */
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: background-color 0.3s;
+}
+
+.booking-button:hover {
+    background-color: #218838;
+}
+
+/* 관리자용 버튼 */
+#admin-controls {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #eee;
+    border-radius: 8px;
+}
+
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    margin-top: 40px;
+}
