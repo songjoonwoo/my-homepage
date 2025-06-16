@@ -3,41 +3,87 @@ body {
     font-family: 'Helvetica Neue', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #fdf6f9; /* 연한 핑크 배경 */
+    background-color: #fdf6f9;
     color: #333;
-    text-align: center;
 }
 
-header {
-    background-color: #e91e63; /* 핫핑크 헤더 */
+/* --- 메인 히어로 슬라이더 스타일 --- */
+.hero-slider {
+    position: relative;
+    width: 100%;
+    max-height: 500px; /* 슬라이더 최대 높이 */
+    overflow: hidden;
     color: white;
-    padding: 20px 0;
 }
-
-header h1 {
+.slides .slide {
+    display: none; /* 슬라이드 기본 숨김 */
+}
+.slides .slide.active {
+    display: block; /* 활성화된 슬라이드만 보임 */
+    animation: fade 1.5s;
+}
+.slides .slide img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover; /* 이미지가 잘리지 않고 꽉 차게 */
+    filter: brightness(0.7); /* 이미지를 살짝 어둡게 */
+}
+/* 슬라이드 위 텍스트 */
+.slider-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+.slider-text h1 {
     margin: 0;
-    font-size: 2.5em;
+    font-size: 3em;
 }
+/* 슬라이더 좌우 버튼 */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+/* 페이드인/아웃 애니메이션 */
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+/* --- --- */
 
 main {
     padding: 20px;
+    text-align: center;
 }
+section { margin-bottom: 40px; }
+h2 { color: #e91e63; }
 
-section {
-    margin-bottom: 40px;
-}
-
-h2 {
-    color: #e91e63;
-}
-
-/* 포트폴리오 갤러리 스타일 */
+/* 포트폴리오 갤러리 스타일 (이전과 동일) */
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 15px;
+    text-align: left;
 }
-
 .gallery .photo img {
     width: 100%;
     height: 100%;
@@ -46,15 +92,12 @@ h2 {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: transform 0.3s;
 }
+.gallery .photo img:hover { transform: scale(1.05); }
 
-.gallery .photo img:hover {
-    transform: scale(1.05);
-}
-
-/* 예약 버튼 스타일 */
+/* 예약 버튼 스타일 (이전과 동일) */
 .booking-button {
     display: inline-block;
-    background-color: #28a745; /* 초록색 버튼 */
+    background-color: #28a745;
     color: white;
     padding: 15px 30px;
     text-decoration: none;
@@ -63,23 +106,12 @@ h2 {
     border-radius: 50px;
     transition: background-color 0.3s;
 }
-
-.booking-button:hover {
-    background-color: #218838;
-}
-
-/* 관리자용 버튼 */
-#admin-controls {
-    margin-top: 50px;
-    padding: 20px;
-    background-color: #eee;
-    border-radius: 8px;
-}
-
+.booking-button:hover { background-color: #218838; }
 
 footer {
     background-color: #333;
     color: white;
     padding: 10px 0;
+    text-align: center;
     margin-top: 40px;
 }
