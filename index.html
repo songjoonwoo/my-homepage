@@ -1,25 +1,47 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>나의 첫 홈페이지</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      padding: 50px;
-      background-color: #f2f2f2;
-    }
-    h1 {
-      color: #333;
-    }
-    p {
-      color: #666;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예나's 네일 - 부산 최고의 네일 아트</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>안녕하세요!</h1>
-  <p>이건 GitHub Pages로 만든 나의 첫 홈페이지입니다 🎉</p>
+
+    <header>
+        <h1>예나's 네일 (Yena's Nail)</h1>
+        <p>부산에서 가장 트렌디한 네일 아트 전문샵</p>
+    </header>
+
+    <main>
+        <section id="portfolio">
+            <h2>✨ 포트폴리오 ✨</h2>
+            <div class="gallery">
+                <div class="photo"><img src="https://via.placeholder.com/300x300.png?text=네일아트+1" alt="네일아트 샘플 1"></div>
+                <div class="photo"><img src="https://via.placeholder.com/300x300.png?text=네일아트+2" alt="네일아트 샘플 2"></div>
+                <div class="photo"><img src="https://via.placeholder.com/300x300.png?text=네일아트+3" alt="네일아트 샘플 3"></div>
+            </div>
+        </section>
+
+        <section id="booking">
+            <h2>📅 실시간 예약하기 📅</h2>
+            <p>아래 버튼을 눌러 원하는 날짜와 시간을 선택하고 예약해주세요.</p>
+            <a href="https://booking.naver.com/" target="_blank" class="booking-button">네이버 예약 바로가기</a>
+        </section>
+        
+        <section id="admin-controls">
+            <h3>[관리자용]</h3>
+            <button id="add-photo-btn">포트폴리오 사진 추가하기</button>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Yena's Nail. All rights reserved.</p>
+        <p>위치: 부산시 OOO구 OOO로 123</p>
+    </footer>
+
+    <script src="script.js"></script>
+
 </body>
 </html>
