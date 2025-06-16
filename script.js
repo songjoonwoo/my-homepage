@@ -1,25 +1,36 @@
-// '사진 추가하기' 버튼을 누르면 실행될 기능
-document.getElementById('add-photo-btn').addEventListener('click', function() {
-    
-    // 이 코드는 '관리자 페이지'의 가장 기초적인 원리를 보여주기 위한 예시입니다.
-    // 실제로는 비밀번호로 로그인하는 진짜 관리자 페이지를 만들고,
-    // 서버에 파일을 업로드하는 복잡한 과정이 필요합니다.
+let slideIndex = 1;
+let slideInterval; // 자동 슬라이드를 위한 변수
 
-    const newPhotoURL = prompt("추가할 사진의 이미지 주소(URL)를 입력하세요:", "https://via.placeholder.com/300x300.png?text=새+네일");
+// 페이지가 로드되면 슬라이드 시작
+window.onload = function() {
+    showSlides(slideIndex);
+    startSlideShow();
+}
 
-    if (newPhotoURL) {
-        // 새로운 사진 요소를 만들어서 갤러리에 추가
-        const gallery = document.querySelector('.gallery');
-        const newPhotoDiv = document.createElement('div');
-        newPhotoDiv.classList.add('photo');
-        
-        const newImage = document.createElement('img');
-        newImage.src = newPhotoURL;
-        newImage.alt = "새 네일아트";
+// 자동 슬라이드 시작 함수
+function startSlideShow() {
+    slideInterval = setInterval(function() {
+        plusSlides(1);
+    }, 4000); // 4초마다 다음 슬라이드로 이동
+}
 
-        newPhotoDiv.appendChild(newImage);
-        gallery.appendChild(newPhotoDiv);
-        
-        alert("새로운 사진이 포트폴리오에 추가되었습니다!");
+// 다음/이전 슬라이드 보여주는 함수
+function plusSlides(n) {
+    clearInterval(slideInterval); // 수동 조작 시 자동 슬라이드 초기화
+    showSlides(slideIndex += n);
+    startSlideShow(); // 다시 자동 슬라이드 시작
+}
+
+// 핵심 슬라이드 로직 함수
+function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("slide");
+    if (n > slides.length) {slideIndex = 1}    
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+        slides[i].classList.remove("active");
     }
-});
+    slides[slideIndex-1].style.display = "block";
+    slides[slideIndex-1].classList.add("active");
+}
